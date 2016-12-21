@@ -1,16 +1,6 @@
 # Purpose
 
-This is a personal script that queries my fieldbook Pantry sheet to report on
-which food items are about to expire soon.
-
-It very much depends on the exact structure of the sheets and fields; as such,
-it's really only meant to work for me, personally. If you're interested in
-using this too, let me know and I'll help you out. :)
-
-# Prerequisites
-
-- Ruby (tested with 2.3)
-- bundler (`gem install bundler`)
+This is a personal script that queries my fieldbook Pantry sheet to report on which food items are about to expire soon.
 
 # Example
 
@@ -31,6 +21,26 @@ UNKNOWN EXPIRATION:
 - Cheddar  
 ```
 
+# Prerequisites
+
+- Ruby (tested with 2.3)
+- bundler (`gem install bundler`)
+- a [Fieldbook](https://fieldbook.com) account
+
+## Fieldbook Sheet
+
+Your Book and Sheet can be named whatever you'd like; in this example, I will assume the sheet is named "Pantry". It _must_ have the following fields:
+
+- "Use By" _(date format)_
+- "Purchased" _(date format)_
+- "Items" _(linked to an "Items" Sheet)_
+
+The linked sheet _must_ be named "Items" (this is a limitation of Fieldbook's linked columns). It _must_ have the following field:
+
+- "Name"
+
+Your sheets can extra fields without causing any problems, and your Book can have extra sheets.
+
 # Usage
 
 ## Setup
@@ -49,7 +59,9 @@ Generate an API key for your Fieldbook account:
 3. Click the "Manage API Access" button at the top right.
 4. Click the "Generate a new API key" button at the bottom right.
 
-Create a `.env` file like the following:
+Figure out your book ID and sheet name. In the example given in the "Prerequisites" section, the sheet name would be "pantry". Your book ID can be found in the URL when you're logged in to Fieldbook. It will look something like this: fieldbook.com/sheets/**&lt;BOOK-ID&gt;**#23
+
+Then, create a `.env` file like the following:
 
 ```
 export FIELDBOOK_KEY="your-fieldbook-api-key"
