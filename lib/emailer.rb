@@ -1,17 +1,20 @@
 require 'date'
-require 'pantry'
+
+require_relative 'pantry'
 
 class Emailer
   TOTAL_WIDTH = 60
   FORMATTING_WIDTH = 3 # bullet point & spaces
 
-  def report
-    pantry = Pantry.new
+  def initialize
+    @pantry = Pantry.new
+  end
 
+  def report
     text = format_title
-    text << format_items('EXPIRING THIS WEEK', pantry.expiring, :use_by_date)
-    text << format_items('FROZEN FOOD', pantry.frozen, :purchased_date)
-    text << format_items('UNKNOWN EXPIRATION', pantry.unknown_expiration)
+    text << format_items('EXPIRING THIS WEEK', @pantry.expiring, :use_by_date)
+    text << format_items('FROZEN FOOD', @pantry.frozen, :purchased_date)
+    text << format_items('UNKNOWN EXPIRATION', @pantry.unknown_expiration)
   end
 
   private

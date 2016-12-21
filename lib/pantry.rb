@@ -4,7 +4,7 @@ require 'net/http'
 require 'uri'
 require 'json'
 
-require 'pantry_item'
+require_relative 'pantry_item'
 
 Dotenv.load
 
