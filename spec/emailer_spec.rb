@@ -14,6 +14,4 @@ RSpec.describe Emailer do
     expected_report = File.read('spec/data/report.txt')
     expect(emailer.report).to eq(expected_report)
   end
-
-  it 'emails the report'
 end
