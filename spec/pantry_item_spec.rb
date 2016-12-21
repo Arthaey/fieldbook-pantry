@@ -21,6 +21,25 @@ RSpec.describe PantryItem do
     end
   end
 
+  context '#purchased_date' do
+    it 'returns nil if it does not have a purchased date' do
+      item = described_class.new
+      expect(item.purchased_date).to be_nil
+    end
+
+    it 'returns its use-by date' do
+      item = described_class.new(purchased: '2016-12-31')
+      expect(item.purchased_date).to eq(Date.parse('2016-12-31'))
+    end
+  end
+
+  context '#name' do
+    it 'returns the item name' do
+      item = described_class.new(items: [{ 'name' => 'Pesto' }])
+      expect(item.name).to eq('Pesto')
+    end
+  end
+
   context '#expires_within?' do
     it 'returns false if it does not have a use-by date' do
       item = described_class.new

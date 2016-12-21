@@ -1,3 +1,8 @@
+ENV['FIELDBOOK_KEY'] = 'test-user'
+ENV['FIELDBOOK_SECRET'] = 'test-password'
+ENV['FIELDBOOK_BOOK_ID'] = 'test-book-id'
+ENV['FIELDBOOK_SHEET_NAME'] = 'test-sheet-name'
+
 FakeWeb.allow_net_connect = false
 
 FakeWeb.register_uri(

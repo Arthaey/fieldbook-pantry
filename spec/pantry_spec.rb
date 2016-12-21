@@ -3,15 +3,10 @@ require 'date'
 require 'pantry'
 
 RSpec.describe Pantry do
-  let(:pantry) { described_class.new }
+  let(:pantry) { described_class.new } # pantry.json via FakeWeb
 
   before(:all) do
     Timecop.travel(Date.parse('2016-12-29'))
-
-    ENV['FIELDBOOK_KEY'] = 'test-user'
-    ENV['FIELDBOOK_SECRET'] = 'test-password'
-    ENV['FIELDBOOK_BOOK_ID'] = 'test-book-id'
-    ENV['FIELDBOOK_SHEET_NAME'] = 'test-sheet-name'
   end
 
   after(:all) do
@@ -19,15 +14,33 @@ RSpec.describe Pantry do
   end
 
   it 'gets all pantry items' do
-    expect(pantry.items.count).to eq(14)
+    expect(pantry.items.count).to eq(11)
   end
 
-  it 'finds only those expiring this week' do
-    expect(pantry.expiring.count).to eq(2)
+  context '#expiring' do
+    it 'finds only those expiring this week' do
+      expect(pantry.expiring.count).to eq(2)
+    end
+
+    it 'sorts them by soonest to expire' do
+      expected_names = ['Half & Half', 'Milk']
+      expect(pantry.expiring.map(&:name)).to eq(expected_names)
+    end
   end
 
-  it 'finds frozen items' do
-    expect(pantry.frozen.count).to eq(6)
+  context '#frozen' do
+    it 'finds only frozen items' do
+      expect(pantry.frozen.count).to eq(3)
+    end
+
+    it 'sorts them by purchase date, then alphabetically' do
+      expected_names = [
+        'Sausage (chicken apple)',
+        'Ravioli (beef)',
+        'Soup dumplings',
+      ]
+      expect(pantry.frozen.map(&:name)).to eq(expected_names)
+    end
   end
 
   it 'finds items with unknown expiration' do

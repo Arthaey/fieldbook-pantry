@@ -10,5 +10,11 @@ RSpec/DescribeClass:
   Exclude:
     - spec/rubocop_spec.rb
 
+RSpec/ExampleLength:
+  Max: 8
+
 Style/Documentation:
+  Enabled: false
+
+Style/TrailingCommaInLiteral:
   Enabled: false

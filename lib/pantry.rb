@@ -4,6 +4,8 @@ require 'net/http'
 require 'uri'
 require 'json'
 
+require 'pantry_item'
+
 Dotenv.load
 
 class Pantry
@@ -17,15 +19,17 @@ class Pantry
   end
 
   def expiring
-    @expiring ||= @items.select { |item| item.expires_within?(WATCH_PERIOD) }
+    expiring = @items.select { |item| item.expires_within?(WATCH_PERIOD) }
+    expiring.sort_by(&:use_by_date)
   end
 
   def frozen
-    @frozen ||= @items.select(&:frozen?)
+    frozen = @items.select(&:frozen?)
+    frozen.sort_by { |item| [item.purchased_date, item.name] }
   end
 
   def unknown_expiration
-    @unknown ||= @items.select do |item|
+    @items.select do |item|
       item.use_by_date.nil? && !item.frozen?
     end
   end

@@ -1,10 +1,22 @@
 class PantryItem
   def initialize(json = {})
     @data = OpenStruct.new(json)
+
+    # OpenStruct.new doesn't do nested structures, so clean up after.
+    items = @data.items || []
+    @data.items = items.map { |item| OpenStruct.new(item) }
+  end
+
+  def name
+    @data.items.map { |item| item[:name] }.join('; ')
+  end
+
+  def purchased_date
+    @purchased_date ||= parse_date(@data.purchased)
   end
 
   def use_by_date
-    @use_by_date ||= (@data.use_by.nil? ? nil : Date.parse(@data.use_by))
+    @use_by_date ||= parse_date(@data.use_by)
   end
 
   def frozen?
@@ -16,6 +28,10 @@ class PantryItem
   end
 
   private
+
+  def parse_date(value)
+    value.nil? ? nil : Date.parse(value)
+  end
 
   def days_until_expired
     return nil if use_by_date.nil?
