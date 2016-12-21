@@ -1,6 +1,6 @@
-require 'emailer'
+require 'reporter'
 
-RSpec.describe Emailer do
+RSpec.describe Reporter do
   before(:all) do
     Timecop.travel(Date.parse('2016-12-29'))
   end

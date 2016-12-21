@@ -2,7 +2,7 @@ require 'date'
 
 require_relative 'pantry'
 
-class Emailer
+class Reporter
   TOTAL_WIDTH = 60
   FORMATTING_WIDTH = 3 # bullet point & spaces
 
