@@ -1,0 +1,226 @@
+[
+  {
+    "id": 1,
+    "record_url": "https://fieldbook.com/records/deadbeef0000000000000001",
+    "pantry_id": "Pantry 1",
+    "use_by": null,
+    "purchased": "2016-12-20",
+    "quantity_left": 4,
+    "unit": null,
+    "notes": "frozen",
+    "items": [
+      {
+        "id": 19,
+        "name": "Pesto"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "record_url": "https://fieldbook.com/records/deadbeef0000000000000002",
+    "pantry_id": "Pantry 2",
+    "use_by": "2017-01-13",
+    "purchased": "2016-12-20",
+    "quantity_left": 1,
+    "unit": null,
+    "notes": null,
+    "items": [
+      {
+        "id": 19,
+        "name": "Pesto"
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "record_url": "https://fieldbook.com/records/deadbeef0000000000000003",
+    "pantry_id": "Pantry 3",
+    "use_by": "2017-01-05",
+    "purchased": "2016-12-20",
+    "quantity_left": 1,
+    "unit": "gal",
+    "notes": null,
+    "items": [
+      {
+        "id": 18,
+        "name": "Milk"
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "record_url": "https://fieldbook.com/records/deadbeef0000000000000004",
+    "pantry_id": "Pantry 4",
+    "use_by": "2016-12-30",
+    "purchased": null,
+    "quantity_left": 0.5,
+    "unit": "gal",
+    "notes": null,
+    "items": [
+      {
+        "id": 18,
+        "name": "Milk"
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "record_url": "https://fieldbook.com/records/deadbeef0000000000000005",
+    "pantry_id": "Pantry 5",
+    "use_by": null,
+    "purchased": "2016-12-20",
+    "quantity_left": 4,
+    "unit": null,
+    "notes": "frozen",
+    "items": [
+      {
+        "id": 20,
+        "name": "Sausage (chicken apple)"
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "record_url": "https://fieldbook.com/records/deadbeef0000000000000006",
+    "pantry_id": "Pantry 6",
+    "use_by": "2017-02-16",
+    "purchased": "2016-12-20",
+    "quantity_left": 1,
+    "unit": null,
+    "notes": null,
+    "items": [
+      {
+        "id": 20,
+        "name": "Sausage (chicken apple)"
+      }
+    ]
+  },
+  {
+    "id": 7,
+    "record_url": "https://fieldbook.com/records/deadbeef0000000000000007",
+    "pantry_id": "Pantry 7",
+    "use_by": null,
+    "purchased": "2016-12-20",
+    "quantity_left": 10,
+    "unit": null,
+    "notes": "frozen",
+    "items": [
+      {
+        "id": 21,
+        "name": "Lemongrass chicken sticks"
+      }
+    ]
+  },
+  {
+    "id": 8,
+    "record_url": "https://fieldbook.com/records/deadbeef0000000000000008",
+    "pantry_id": "Pantry 8",
+    "use_by": null,
+    "purchased": "2016-12-20",
+    "quantity_left": 6,
+    "unit": null,
+    "notes": "frozen",
+    "items": [
+      {
+        "id": 22,
+        "name": "Soup dumplings"
+      }
+    ]
+  },
+  {
+    "id": 9,
+    "record_url": "https://fieldbook.com/records/deadbeef0000000000000009",
+    "pantry_id": "Pantry 9",
+    "use_by": null,
+    "purchased": "2016-12-20",
+    "quantity_left": 6,
+    "unit": null,
+    "notes": "frozen",
+    "items": [
+      {
+        "id": 23,
+        "name": "Italian sausage"
+      }
+    ]
+  },
+  {
+    "id": 10,
+    "record_url": "https://fieldbook.com/records/deadbeef0000000000000010",
+    "pantry_id": "Pantry 10",
+    "use_by": "2017-05-07",
+    "purchased": "2016-12-20",
+    "quantity_left": 7,
+    "unit": "oz",
+    "notes": null,
+    "items": [
+      {
+        "id": 11,
+        "name": "Cheddar"
+      }
+    ]
+  },
+  {
+    "id": 11,
+    "record_url": "https://fieldbook.com/records/deadbeef0000000000000011",
+    "pantry_id": "Pantry 11",
+    "use_by": null,
+    "purchased": null,
+    "quantity_left": 3,
+    "unit": "oz",
+    "notes": null,
+    "items": [
+      {
+        "id": 11,
+        "name": "Cheddar"
+      }
+    ]
+  },
+  {
+    "id": 12,
+    "record_url": "https://fieldbook.com/records/deadbeef0000000000000012",
+    "pantry_id": "Pantry 12",
+    "use_by": null,
+    "purchased": "2016-12-20",
+    "quantity_left": 9,
+    "unit": "oz",
+    "notes": "frozen",
+    "items": [
+      {
+        "id": 24,
+        "name": "Ravioli (beef)"
+      }
+    ]
+  },
+  {
+    "id": 13,
+    "record_url": "https://fieldbook.com/records/deadbeef0000000000000013",
+    "pantry_id": "Pantry 13",
+    "use_by": "2018-10-27",
+    "purchased": "2016-12-20",
+    "quantity_left": 1,
+    "unit": null,
+    "notes": null,
+    "items": [
+      {
+        "id": 26,
+        "name": "Bolognese sauce"
+      }
+    ]
+  },
+  {
+    "id": 14,
+    "record_url": "https://fieldbook.com/records/deadbeef0000000000000014",
+    "pantry_id": "Pantry 14",
+    "use_by": "2018-04-05",
+    "purchased": "2016-12-20",
+    "quantity_left": 1,
+    "unit": null,
+    "notes": null,
+    "items": [
+      {
+        "id": 27,
+        "name": "Peanut butter"
+      }
+    ]
+  }
+]
