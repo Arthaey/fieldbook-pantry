@@ -8,4 +8,7 @@ group :test do
 
   gem 'fakeweb'
   gem 'timecop'
+
+  gem 'rubocop', require: false
+  gem 'rubocop-rspec'
 end

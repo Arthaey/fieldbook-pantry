@@ -3,7 +3,7 @@ require 'date'
 require 'pantry'
 
 RSpec.describe Pantry do
-  let(:pantry) { Pantry.new }
+  let(:pantry) { described_class.new }
 
   before(:all) do
     Timecop.travel(Date.parse('2016-12-29'))
@@ -18,20 +18,19 @@ RSpec.describe Pantry do
     Timecop.return
   end
 
-	it 'should get all pantry items' do
+  it 'gets all pantry items' do
     expect(pantry.items.count).to eq(14)
   end
 
-  it 'should find only those expiring this week' do
+  it 'finds only those expiring this week' do
     expect(pantry.expiring.count).to eq(2)
   end
-  
-  it 'should find frozen items' do
+
+  it 'finds frozen items' do
     expect(pantry.frozen.count).to eq(6)
   end
 
-  it 'should find items with unknown expiration' do
+  it 'finds items with unknown expiration' do
     expect(pantry.unknown_expiration.count).to eq(1)
   end
-
 end

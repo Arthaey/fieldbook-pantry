@@ -7,7 +7,6 @@ require 'json'
 Dotenv.load
 
 class Pantry
-
   WATCH_PERIOD = 7 # days
 
   attr_reader :items
@@ -26,26 +25,27 @@ class Pantry
   end
 
   def unknown_expiration
-    @unknown ||= @items.select { |item| item.use_by_date.nil? and !item.frozen? }
+    @unknown ||= @items.select do |item|
+      item.use_by_date.nil? && !item.frozen?
+    end
   end
 
   private
 
   def request_data!
-    book_id    = ENV['FIELDBOOK_BOOK_ID']
-    sheet_name = ENV['FIELDBOOK_SHEET_NAME']
-    key        = ENV['FIELDBOOK_KEY']
-    secret     = ENV['FIELDBOOK_SECRET']
-
-    uri = URI.parse("https://api.fieldbook.com/v1/#{book_id}/#{sheet_name}")
-
+    uri = request_uri
     http = Net::HTTP.new(uri.host, uri.port)
     request = Net::HTTP::Get.new(uri.request_uri)
-    request.basic_auth(key, secret)
+    request.basic_auth(ENV['FIELDBOOK_KEY'], ENV['FIELDBOOK_SECRET'])
     http.use_ssl = true
 
     response = http.request(request)
     JSON.parse(response.body)
   end
 
+  def request_uri
+    book_id    = ENV['FIELDBOOK_BOOK_ID']
+    sheet_name = ENV['FIELDBOOK_SHEET_NAME']
+    URI.parse("https://api.fieldbook.com/v1/#{book_id}/#{sheet_name}")
+  end
 end

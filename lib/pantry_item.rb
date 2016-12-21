@@ -1,5 +1,4 @@
 class PantryItem
-
   def initialize(json = {})
     @data = OpenStruct.new(json)
   end
@@ -22,5 +21,4 @@ class PantryItem
     return nil if use_by_date.nil?
     (use_by_date - Date.today).to_i
   end
-
 end

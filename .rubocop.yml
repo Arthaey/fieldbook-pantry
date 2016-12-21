@@ -1,0 +1,14 @@
+require: rubocop-rspec
+
+AllCops:
+  Exclude:
+    - spec/spec_helper.rb
+  DisplayCopNames: true
+  DisplayStyleGuide: true
+
+RSpec/DescribeClass:
+  Exclude:
+    - spec/rubocop_spec.rb
+
+Style/Documentation:
+  Enabled: false
