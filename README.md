@@ -12,6 +12,25 @@ using this too, let me know and I'll help you out. :)
 - Ruby (tested with 2.3)
 - bundler (`gem install bundler`)
 
+# Example
+
+```
+REPORT FOR THURSDAY, 12/29
+============================================================
+
+EXPIRING THIS WEEK:
+- Half & Half                                    [Fri 12/30]
+- Milk                                           [Thu   1/5]
+
+FROZEN FOOD:
+- Sausage (chicken apple)                            [ 12/4]
+- Ravioli (beef)                                     [12/20]
+- Soup dumplings                                     [12/20]
+
+UNKNOWN EXPIRATION:
+- Cheddar  
+```
+
 # Usage
 
 ## Setup
