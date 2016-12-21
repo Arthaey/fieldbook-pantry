@@ -87,7 +87,7 @@ Figure out all the absolute-path values of your Ruby installation. Cron won't ha
 Using the above values, edit your crontab to email yourself daily (weekly, whenever). For example, if you wanted it to email you every day at 5:05 AM, you would `crontab -e` and add this entry:
 
 ```
-5  5  *  *  *  GEM_PATH=<gem-path> GEM_HOME=<gem-home> <ruby-path> <full-path-to-repo>/fieldbook-pantry/print_report | /usr/bin/mail -s "Pantry Report" <your-email>
+5  5  *  *  *  DOTENV=<env-file-path> GEM_PATH=<gem-path> GEM_HOME=<gem-home> <ruby-path> <full-path-to-repo>/fieldbook-pantry/print_report | /usr/bin/mail -s "Pantry Report" <your-email>
 ```
 
 ### Troubleshooting
