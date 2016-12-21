@@ -3,7 +3,10 @@ require 'date'
 require 'pantry'
 
 RSpec.describe Pantry do
-  let(:pantry) { described_class.new } # pantry.json via FakeWeb
+  let(:pantry) do
+    ENV['DOTENV'] = 'spec/data/test.env'
+    described_class.new
+  end
 
   before(:all) do
     Timecop.travel(Date.parse('2016-12-29'))
@@ -45,5 +48,11 @@ RSpec.describe Pantry do
 
   it 'finds items with unknown expiration' do
     expect(pantry.unknown_expiration.count).to eq(1)
+  end
+
+  it 'uses configuration from given DOTENV file' do
+    ENV['DOTENV'] = 'spec/data/override.env'
+    other_pantry = described_class.new
+    expect(other_pantry.items.count).to eq(1)
   end
 end

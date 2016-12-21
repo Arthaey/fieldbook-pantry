@@ -1,0 +1,18 @@
+[
+  {
+    "id": 2,
+    "record_url": "https://fieldbook.com/records/deadbeef0000000000000002",
+    "pantry_id": "Pantry 2",
+    "use_by": "2017-01-13",
+    "purchased": "2016-12-20",
+    "quantity_left": 1,
+    "unit": null,
+    "notes": null,
+    "items": [
+      {
+        "id": 19,
+        "name": "Pesto"
+      }
+    ]
+  }
+]

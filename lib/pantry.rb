@@ -6,14 +6,14 @@ require 'json'
 
 require_relative 'pantry_item'
 
-Dotenv.load
-
 class Pantry
   WATCH_PERIOD = 7 # days
 
   attr_reader :items
 
   def initialize
+    @config = Dotenv.load(ENV['DOTENV'] || '.env')
+
     data = request_data!
     @items = data.map { |json| PantryItem.new(json) }
   end
@@ -40,7 +40,7 @@ class Pantry
     uri = request_uri
     http = Net::HTTP.new(uri.host, uri.port)
     request = Net::HTTP::Get.new(uri.request_uri)
-    request.basic_auth(ENV['FIELDBOOK_KEY'], ENV['FIELDBOOK_SECRET'])
+    request.basic_auth(config('FIELDBOOK_KEY'), config('FIELDBOOK_SECRET'))
     http.use_ssl = true
 
     response = http.request(request)
@@ -48,8 +48,12 @@ class Pantry
   end
 
   def request_uri
-    book_id    = ENV['FIELDBOOK_BOOK_ID']
-    sheet_name = ENV['FIELDBOOK_SHEET_NAME']
+    book_id    = config('FIELDBOOK_BOOK_ID')
+    sheet_name = config('FIELDBOOK_SHEET_NAME')
     URI.parse("https://api.fieldbook.com/v1/#{book_id}/#{sheet_name}")
+  end
+
+  def config(key)
+    @config[key] || ENV[key]
   end
 end
