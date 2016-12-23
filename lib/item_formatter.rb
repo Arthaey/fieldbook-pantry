@@ -3,19 +3,21 @@ class ItemFormatter
   FORMATTING_WIDTH = 3 # bullet point & spaces
 
   def initialize(type = :no_date)
+    @date_method = :purchased_date
+    @date_formats = ['%-m/%-d']
+    @final_format = '[%5s]'
+
     case type
     when :canned
       @date_method = :use_by_date
       @date_formats = ['%b%y']
-      @final_format = '[%5s]'
     when :expiring
       @date_method = :use_by_date
       @date_formats = ['%a', '%-m/%-d']
       @final_format = '[%s %5s]'
     when :frozen
-      @date_method = :purchased_date
-      @date_formats = ['%-m/%-d']
-      @final_format = '[%5s]'
+    when :unknown_expiration
+      # use default values
     end
   end
 

@@ -38,4 +38,11 @@ RSpec.describe ItemFormatter do
     formatter = described_class.new(:frozen)
     expect(formatter.format(item)).to eq(expected)
   end
+
+  it 'formats unknown expiration items' do
+    item = PantryItem.new(item_data)
+    expected = "- Peas                                               [ 12/5]\n"
+    formatter = described_class.new(:unknown_expiration)
+    expect(formatter.format(item)).to eq(expected)
+  end
 end

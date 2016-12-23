@@ -14,7 +14,7 @@ RSpec.describe Pantry do
   end
 
   it 'gets all pantry items' do
-    expect(pantry.items.count).to eq(13)
+    expect(pantry.items.count).to eq(15)
   end
 
   context '#expiring' do
@@ -58,8 +58,19 @@ RSpec.describe Pantry do
     end
   end
 
-  it 'finds items with unknown expiration' do
-    expect(pantry.unknown_expiration.count).to eq(1)
+  context '#unknown_expiration' do
+    it 'finds items with unknown expiration' do
+      expect(pantry.unknown_expiration.count).to eq(3)
+    end
+
+    it 'sorts them by purchase date, then alphabetically' do
+      expected_names = [
+        'Monterey Jack',
+        'Cheddar',
+        'Gouda',
+      ]
+      expect(pantry.unknown_expiration.map(&:name)).to eq(expected_names)
+    end
   end
 
   it 'uses configuration from given DOTENV file' do
@@ -70,5 +81,14 @@ RSpec.describe Pantry do
     expect(other_pantry.items.count).to eq(1)
 
     ENV['DOTENV'] = original_dotenv
+  end
+
+  # sort_by crashes with "ArgumentError: comparison of Array with Array failed"
+  # when the a <=> b comparison returns nil (eg, when a date is nil).
+  it 'does not crash on null dates' do
+    with_env('null-date') do
+      other_pantry = described_class.new
+      expect(other_pantry.unknown_expiration.count).to eq(2)
+    end
   end
 end

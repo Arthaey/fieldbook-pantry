@@ -1,0 +1,54 @@
+[
+  {
+    "id": 50,
+    "record_url": "https://fieldbook.com/records/585b0a689a457703006b1181",
+    "price": 1.03,
+    "quantity": 1,
+    "units": "each",
+    "details": null,
+    "use_by": null,
+    "purchased": null,
+    "quantity_left": "2",
+    "notes": null,
+    "stores": [
+      {
+        "id": 2,
+        "name": "Ballard Market"
+      }
+    ],
+    "items": [
+      {
+        "id": 42,
+        "name": "Apple (granny smith)"
+      }
+    ],
+    "brands": [],
+    "units_standardized": []
+  },
+  {
+    "id": 51,
+    "record_url": "https://fieldbook.com/records/585b0a92da2e860300e03309",
+    "price": 2.16,
+    "quantity": null,
+    "units": null,
+    "details": null,
+    "use_by": null,
+    "purchased": "2016-12-20",
+    "quantity_left": "10?",
+    "notes": null,
+    "stores": [
+      {
+        "id": 2,
+        "name": "Ballard Market"
+      }
+    ],
+    "items": [
+      {
+        "id": 43,
+        "name": "Banana (baby)"
+      }
+    ],
+    "brands": [],
+    "units_standardized": []
+  }
+]

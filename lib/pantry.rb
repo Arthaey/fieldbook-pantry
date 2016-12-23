@@ -12,10 +12,8 @@ class Pantry
   attr_reader :items
 
   def initialize
-    @config = Dotenv.load(ENV['DOTENV'] || '.env')
-
-    data = request_data!
-    @items = data.map { |json| PantryItem.new(json) }
+    @config = load_config
+    @items = request_data!.map { |json| PantryItem.new(json) }
   end
 
   def expiring
@@ -24,22 +22,26 @@ class Pantry
   end
 
   def canned
-    canned = @items.select(&:canned?)
-    canned.sort_by { |item| [item.use_by_date, item.name] }
+    sort(@items.select(&:canned?), :use_by_date)
   end
 
   def frozen
-    frozen = @items.select(&:frozen?)
-    frozen.sort_by { |item| [item.purchased_date, item.name] }
+    sort(@items.select(&:frozen?), :purchased_date)
   end
 
   def unknown_expiration
-    @items.select do |item|
-      item.use_by_date.nil? && !item.frozen?
+    unknowns = @items.select do |item|
+      item.use_by_date.nil? && !item.frozen? && !item.canned?
     end
+    sort(unknowns, :purchased_date)
   end
 
   private
+
+  def sort(items, date_method)
+    far_future = Date.parse('9999-12-31')
+    items.sort_by { |item| [item.send(date_method) || far_future, item.name] }
+  end
 
   def request_data!
     uri = request_uri
@@ -60,5 +62,10 @@ class Pantry
 
   def config(key)
     @config[key] || ENV[key]
+  end
+
+  def load_config
+    filename = ENV['DOTENV'] || '.env'
+    filename.empty? ? {} : Dotenv.load(filename)
   end
 end

@@ -112,11 +112,43 @@
     ]
   },
   {
+    "id": 17,
+    "record_url": "https://fieldbook.com/records/deadbeef0000000000000017",
+    "pantry_id": "Pantry 17",
+    "use_by": null,
+    "purchased": "2016-12-27",
+    "quantity_left": 1,
+    "unit": "oz",
+    "notes": null,
+    "items": [
+      {
+        "id": 97,
+        "name": "Monterey Jack"
+      }
+    ]
+  },
+  {
+    "id": 18,
+    "record_url": "https://fieldbook.com/records/deadbeef0000000000000018",
+    "pantry_id": "Pantry 18",
+    "use_by": null,
+    "purchased": "2016-12-28",
+    "quantity_left": 1,
+    "unit": "oz",
+    "notes": null,
+    "items": [
+      {
+        "id": 96,
+        "name": "Gouda"
+      }
+    ]
+  },
+  {
     "id": 11,
     "record_url": "https://fieldbook.com/records/deadbeef0000000000000011",
     "pantry_id": "Pantry 11",
     "use_by": null,
-    "purchased": null,
+    "purchased": "2016-12-28",
     "quantity_left": 3,
     "unit": "oz",
     "notes": null,

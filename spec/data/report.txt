@@ -16,5 +16,7 @@ FROZEN FOOD:
 - Soup dumplings                                     [12/20]
 
 UNKNOWN EXPIRATION:
-- Cheddar                                                   
+- Monterey Jack                                      [12/27]
+- Cheddar                                            [12/28]
+- Gouda                                              [12/28]
 
