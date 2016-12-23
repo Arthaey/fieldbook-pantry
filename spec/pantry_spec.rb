@@ -3,10 +3,7 @@ require 'date'
 require 'pantry'
 
 RSpec.describe Pantry do
-  let(:pantry) do
-    ENV['DOTENV'] = 'spec/data/test.env'
-    described_class.new
-  end
+  let(:pantry) { described_class.new }
 
   before(:all) do
     Timecop.travel(Date.parse('2016-12-29'))
@@ -17,7 +14,7 @@ RSpec.describe Pantry do
   end
 
   it 'gets all pantry items' do
-    expect(pantry.items.count).to eq(11)
+    expect(pantry.items.count).to eq(13)
   end
 
   context '#expiring' do
@@ -28,6 +25,21 @@ RSpec.describe Pantry do
     it 'sorts them by soonest to expire' do
       expected_names = ['Half & Half', 'Milk']
       expect(pantry.expiring.map(&:name)).to eq(expected_names)
+    end
+  end
+
+  context '#canned' do
+    it 'finds only canned items' do
+      expect(pantry.canned.count).to eq(3)
+    end
+
+    it 'sorts them by use-by date, then alphabetically' do
+      expected_names = [
+        'Tuna',
+        'Bolognese sauce',
+        'Salmon',
+      ]
+      expect(pantry.canned.map(&:name)).to eq(expected_names)
     end
   end
 
@@ -51,8 +63,12 @@ RSpec.describe Pantry do
   end
 
   it 'uses configuration from given DOTENV file' do
+    original_dotenv = ENV['DOTENV']
     ENV['DOTENV'] = 'spec/data/override.env'
+
     other_pantry = described_class.new
     expect(other_pantry.items.count).to eq(1)
+
+    ENV['DOTENV'] = original_dotenv
   end
 end

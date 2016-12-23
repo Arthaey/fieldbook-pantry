@@ -1,3 +1,5 @@
+ENV['DOTENV'] = 'spec/data/test.env'
+
 FakeWeb.allow_net_connect = false
 
 def register_pantry(prefix, file_basename)

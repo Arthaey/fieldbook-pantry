@@ -57,6 +57,18 @@ RSpec.describe PantryItem do
     end
   end
 
+  context '#canned?' do
+    it 'returns true if it is canned' do
+      item = described_class.new(notes: 'canned')
+      expect(item.canned?).to eq(true)
+    end
+
+    it 'returns false if it is not canned' do
+      item = described_class.new(notes: 'not canned')
+      expect(item.canned?).to eq(false)
+    end
+  end
+
   context '#frozen?' do
     it 'returns true if it is frozen' do
       item = described_class.new(notes: 'frozen')

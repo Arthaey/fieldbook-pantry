@@ -144,6 +144,38 @@
     ]
   },
   {
+    "id": 15,
+    "record_url": "https://fieldbook.com/records/deadbeef0000000000000015",
+    "pantry_id": "Pantry 15",
+    "use_by": "2018-10-27",
+    "purchased": "2016-12-20",
+    "quantity_left": 1,
+    "unit": null,
+    "notes": "canned",
+    "items": [
+      {
+        "id": 98,
+        "name": "Salmon"
+      }
+    ]
+  },
+  {
+    "id": 16,
+    "record_url": "https://fieldbook.com/records/deadbeef0000000000000016",
+    "pantry_id": "Pantry 16",
+    "use_by": "2017-05-02",
+    "purchased": "2016-12-20",
+    "quantity_left": 1,
+    "unit": null,
+    "notes": "canned",
+    "items": [
+      {
+        "id": 98,
+        "name": "Tuna"
+      }
+    ]
+  },
+  {
     "id": 13,
     "record_url": "https://fieldbook.com/records/deadbeef0000000000000013",
     "pantry_id": "Pantry 13",
@@ -151,7 +183,7 @@
     "purchased": "2016-12-20",
     "quantity_left": 1,
     "unit": null,
-    "notes": null,
+    "notes": "canned",
     "items": [
       {
         "id": 26,

@@ -19,6 +19,10 @@ class PantryItem
     @use_by_date ||= parse_date(@data.use_by)
   end
 
+  def canned?
+    @data.notes == 'canned'
+  end
+
   def frozen?
     @data.notes == 'frozen'
   end

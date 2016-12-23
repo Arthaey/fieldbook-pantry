@@ -23,6 +23,11 @@ class Pantry
     expiring.sort_by(&:use_by_date)
   end
 
+  def canned
+    canned = @items.select(&:canned?)
+    canned.sort_by { |item| [item.use_by_date, item.name] }
+  end
+
   def frozen
     frozen = @items.select(&:frozen?)
     frozen.sort_by { |item| [item.purchased_date, item.name] }
